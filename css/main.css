@@ -1,0 +1,184 @@
+:root {
+  --calc-width: 90vw;
+  --height-mod: 1.5;
+}
+
+body {
+  background-color: rgb(196, 196, 196);
+}
+
+body > * {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+        box-sizing: border-box;
+}
+
+@font-face{
+  font-family:'digital-clock-font';
+  src: url('/fonts/TickingTimebombBB.ttf');
+ }
+
+#calculator-body {
+  width: var(--calc-width);
+  height: calc(var(--calc-width) * var(--height-mod));
+  max-height: 90vh;
+  
+  background-color: #0b5497;
+  margin: auto auto;
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+
+  padding-top: calc(var(--calc-width) * .07);
+  padding-bottom: calc(var(--calc-width) * .1);
+  /* padding-left: calc(var(--calc-width) * .03);
+  padding-right: calc(var(--calc-width) * .03); */
+}
+
+@media only screen and (min-width: 769px) {
+  :root {
+    --calc-width: 30vw;
+    --height-mod: 1.5; 
+  }
+}
+
+#calculator-display-wrapper {
+  height: calc(100% - 2px); /* account for calculator border */
+  /* border: 2px solid green; */
+}
+
+#screen-wrapper {
+  /* border: 1px solid rgb(0, 0, 177); */
+  border-left: none;
+  border-right: none;
+  height: calc(var(--calc-width) * .2);
+}
+
+#screen-border {
+  margin-left: calc(var(--calc-width) * .1);
+  margin-right: calc(var(--calc-width) * .1);
+  height: calc(100% - 10px);
+  border-top: 5px solid #05344a;
+  border-bottom: 5px solid #075695;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  background-color: #0c2426;
+
+  position: relative;
+}
+
+#screen {
+  /* margin: calc(var(--calc-width) * .02); */
+  top: 10%;
+  left: 5%;
+  height: 80%;
+  width: 90%;
+  background-color: #bec0bd;
+  border-radius: 5px;
+  position: absolute;
+  font-family: 'digital-clock-font';
+  font-size: calc(var(--calc-width) *.13);
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right: 5%;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#logo-solar-wrapper {
+  padding-left: 5%;
+  height: calc(var(--calc-width) * .3);
+  border-bottom: 3px solid rgb(31, 31, 31);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#logo {
+  color: #cce5f3;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: calc(var(--calc-width) * .05);
+}
+
+#solar {
+  width: 40%;
+  height: 40%;
+  background-color: #1a211a;
+  margin-top: 2%;
+  border-radius: 2px;
+  /* box-shadow: -2px -2px; */
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.solar-box {
+  border-right: 2px solid rgb(17, 17, 17);;
+}
+
+.box-end {
+  border-right: none;
+}
+
+#buttons-wrapper {
+  height: calc(97% - (var(--calc-width) * .3) - var(--calc-width) * .2); /* subtract heights of two divs above */
+  border: 3px solid #023467;
+  margin: 2% 3%;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  /* column-gap: 7px; */
+  column-gap: 2%;
+  row-gap: 2%;
+  padding: 2%;
+}
+
+.button {
+  background-color: #cb2b37;
+  border-radius: 5px;
+  color: #f6d4d3;
+  padding: 5% 5%;
+  font-size: calc(var(--calc-width) * .05);
+  /* font-family: 'Courier New', Courier, monospace; */
+  font-family: 'Orbitron';
+  font-weight: bolder;
+  box-shadow: 2px 2px #070818;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button.right {
+  background-color: green;
+  -left: 15px;
+}
+
+.button.equals {
+  grid-row: span 2;
+}
+
+.button.number {
+  background-color: #e8eeec;
+  color: #2c3f63;
+}
+
+.button.clicked {
+  position: relative; 
+  left: 2px;
+  top: 2px;
+  box-shadow: none;
+}
