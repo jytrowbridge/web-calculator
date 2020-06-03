@@ -1,4 +1,4 @@
-import processButton from "/scripts/opFuncs.js";
+import processButton from "opFuncs.js";
 
 export const buttons = document.querySelectorAll('.button');
 
