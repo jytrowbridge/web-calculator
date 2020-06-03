@@ -1,5 +1,5 @@
-import {Calculator} from "/scripts/calculator.js";
-import cleanNumber from "/scripts/sciNot.js";
+import {Calculator} from "calculator.js";
+import cleanNumber from "sciNot.js";
 
 const screen = document.querySelector('#screen');
 screen.textContent = '0';

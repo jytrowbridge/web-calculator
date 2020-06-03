@@ -1,4 +1,4 @@
-import {fromSciNot} from '/scripts/sciNot.js';
+import {fromSciNot} from 'sciNot.js';
 
 export class Calculator {
   constructor () {
