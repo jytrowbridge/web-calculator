@@ -50,6 +50,7 @@ function clear() {
  };
 
 function appendNum(number) {
+  calculator.prevIsOp = false;
   let screenNum = calculator.clearScreen ? '' : screen.textContent;
   if (getNumLen(screenNum) >= maxLength) return;
   if (number == 'dot') {

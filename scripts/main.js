@@ -41,7 +41,6 @@ function processClicked() {
 }
 
 function processKey(e) {
-  console.log(e);
   e.preventDefault();
   let code = e.keyCode;
   const shift = e.shiftKey;

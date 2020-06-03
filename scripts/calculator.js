@@ -7,7 +7,8 @@ export class Calculator {
     this.operator = undefined;
     this.clearScreen = true;
     this.cumulative = true;
-
+    this.prevIsOp = false;
+    this.operations = ['add', 'divide', 'subtract', 'multiply']
   }
 
   computeOp (num, op) {
@@ -39,38 +40,48 @@ export class Calculator {
     */
     // convert number from scientific notation
     num = fromSciNot(num); 
+    let returnVal;
 
     switch (op) {
       case ('plus-minus'):
-        return num *-1;
+        returnVal = num *-1;
+        break;
       case ('pct'):
-        return num / 100;
+        returnVal = num / 100;
+        break;
       case ('sqrt'):
-        return num**0.5;
+        returnVal = num**0.5;
+        break;
       case ('m-plus'):
         this.memory += num;
-        return num;
+        returnVal = num;
+        break;
       case ('m-minus'):
         this.memory -= num;
-        return num;
+        returnVal = num;
+        break;
       case ('mrc'):
-        console.log(this.memory)
-        return this.memory;   
+        returnVal = this.memory;   
+        break;
       case ('divide'):
       case ('multiply'):
       case ('add'):
       case ('subtract'):
-        this.num1 = this.num1 != undefined && this.cumulative ? this.performOp(num) : num;
+        this.num1 = this.num1 != undefined && this.cumulative && !this.prevIsOp ? this.performOp(num) : num;
         this.operator = op;
         this.cumulative = true;
-        return this.num1;
+        returnVal = this.num1;
+        break;
       case ('equals'):
         if (this.num1 == undefined || this.operator == undefined) return num;
         this.num1 = this.performOp(num);
         this.operator = undefined;
         this.cumulative = false;
-        return this.num1;
+        returnVal = this.num1;
+        break;
     }
+    this.prevIsOp = this.operations.includes(op);
+    return returnVal;
   }
 
   performOp(num) {
