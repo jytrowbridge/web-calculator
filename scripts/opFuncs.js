@@ -6,16 +6,15 @@ screen.textContent = '0';
 let calculator = new Calculator();
 const maxLength = 10;
 
-export default function processButton (btn) {
-  if (btn.classList.contains('number')) {
-    appendNum(btn.id);
-  } else if (btn.id == 'on-c') {
+export default function processInput (id) {
+  if (!isNaN(parseInt(id)) || id == 'dot') {
+    appendNum(id);
+  } else if (id == 'on-c') {
     clear();
   } else {
-    computeResult(btn.id);
+    computeResult(id);
   }
 }
-
 
 function computeResult(op) { 
   // sends operator and number to computeOp method and adds result to screen dom
@@ -62,3 +61,19 @@ function appendNum(number) {
   screen.textContent = numStr;
   calculator.clearScreen = false;
 }
+
+// function convWordNum(wordNum) {
+//   // Given number in word format (e.g. 'one', 'two') return the associated number.
+//   const numbers = {
+//     one     : 1,
+//     two     : 2,
+//     three   : 3,
+//     four    : 4,
+//     five    : 5,
+//     six     : 6,
+//     seven   : 7,
+//     eight   : 8,
+//     nine    : 9,
+//     zero    : 0,
+//   }
+// }
