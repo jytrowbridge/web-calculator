@@ -89,7 +89,7 @@ body > * {
   font-size: calc(var(--calc-width) *.13);
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
+  padding-top: 2%;
   padding-right: 5%;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
