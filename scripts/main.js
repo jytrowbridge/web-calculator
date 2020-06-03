@@ -41,6 +41,8 @@ function processClicked() {
 }
 
 function processKey(e) {
+  console.log(e);
+  e.preventDefault();
   let code = e.keyCode;
   const shift = e.shiftKey;
   let id = getId(code, shift);
@@ -65,10 +67,10 @@ function getId(code, shift) {
     case((code == 56 && shift) || code == 106): 
       id = 'multiply';
       break;
-    case ((code == 187 && shift) || code == 107):
+    case ((code == 187 && shift) || (code == 61 && shift) || code == 107):
       id = 'add';
       break;
-    case (code == 189 || code == 109):
+    case (code == 189 || code == 173 || code == 109):
       id = 'subtract';
       break;
     case (code == 53 && shift):
@@ -77,7 +79,7 @@ function getId(code, shift) {
     case (code == 190 || code == 110):
       id = 'dot';
       break;
-    case (code == 13 || code == 187):
+    case (code == 13 || code == 61|| code == 187):
       id = 'equals';
       break;
     case (code == 67):
