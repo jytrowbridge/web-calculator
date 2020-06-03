@@ -41,10 +41,11 @@ function processClicked() {
 }
 
 function processKey(e) {
-  e.preventDefault();
+  // e.preventDefault();
   let code = e.keyCode;
   const shift = e.shiftKey;
   let id = getId(code, shift);
+  if (id == 'divide') e.preventDefault(); // on firefox, '/' key is quick search
   if (id != undefined) {
     const button = document.querySelector(`[id='${id}']`);
     if (e.type == 'keydown') {

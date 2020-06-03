@@ -11,7 +11,8 @@ export default function cleanNumber(num, maxLength) {
   } else {
     if (numStr.replace('.', '').length > maxLength) {
       if (numStr.slice(0,maxLength).includes('.') || numStr[maxLength] == '.') {
-        return remZeroTrail(num.toPrecision(maxLength));
+        //return remZeroTrail(num.toPrecision(maxLength));
+        return remZeroTrail(toFixedLen(num,maxLength));
       } else {
         let sciNot = num.toExponential();
         return cleanSciNot(sciNot, maxLength);
@@ -20,6 +21,19 @@ export default function cleanNumber(num, maxLength) {
       return numStr;
     }
   }
+}
+
+function toFixedLen(num, len) {
+  // given number with decimal, return number with len number of digits, rounded.
+  // e.g. toFixedLen(1.36, 2) = 1.4
+  let [whole, dec] = num.toString().split('.');
+  return toFixed(num, len - whole.length);
+}
+
+function toFixed( num, precision ) {
+  // Returns number adjusted to given precision and rounded.
+  // e.g. toFixed(1.546, 2) = 1.55
+  return (+(Math.round(+(num + 'e' + precision)) + 'e' + -precision)).toFixed(precision);
 }
 
 export function fromSciNot(num) {
