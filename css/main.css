@@ -37,7 +37,7 @@ body > * {
   border-top-right-radius: 5px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-
+  margin-top: calc(var(--calc-width) *0.05);
   padding-top: calc(var(--calc-width) * .07);
   padding-bottom: calc(var(--calc-width) * .1);
   /* padding-left: calc(var(--calc-width) * .03);
