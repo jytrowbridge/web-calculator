@@ -53,7 +53,10 @@ function clear() {
 function appendNum(number) {
   let screenNum = calculator.clearScreen ? '' : screen.textContent;
   if (getNumLen(screenNum) >= maxLength) return;
-  number = number == 'dot' ? '.' : number;  
+  if (number == 'dot') {
+    if (screenNum.includes('.')) return;
+    number = '.';
+  }
   number = number == '1' ? ' 1' : number;  // prefix one with 0
   const numStr = screenNum.concat(number);
   screen.textContent = numStr;
