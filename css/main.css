@@ -22,7 +22,7 @@ body > * {
 
 @font-face{
   font-family:'digital-clock-font';
-  src: url('/fonts/TickingTimebombBB.ttf');
+  src: url('../fonts/TickingTimebombBB.ttf');
  }
 
 #calculator-body {
